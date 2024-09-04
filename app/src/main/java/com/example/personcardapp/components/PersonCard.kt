@@ -26,13 +26,13 @@ fun PersonCard(person: Person){
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                painter = painterResource(R.drawable.pic_bruno_mars_musician),
+                painter = painterResource(person.imageId),
                 contentDescription = "image",
                 modifier = Modifier.height(100.dp)
             )
             Column {
                 Text(text = "Name: ${person.firstName} ${person.lastName}")
-                Text(text = "Occupation: ${person.occupation}", fontSize = 10.sp)
+                Text(text = "Occupation: ${person.occupation}", fontSize = 13.sp)
             }
         }
     }
