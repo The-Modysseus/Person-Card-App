@@ -16,9 +16,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.personcardapp.R
+import com.example.personcardapp.model.Person
 
 @Composable
-fun PersonCard(imageId: Int, firstName: String, lastName: String, occupation: String){
+fun PersonCard(person: Person){
     Card(modifier = Modifier.fillMaxWidth()) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(10.dp),
@@ -30,8 +31,8 @@ fun PersonCard(imageId: Int, firstName: String, lastName: String, occupation: St
                 modifier = Modifier.height(100.dp)
             )
             Column {
-                Text(text = "Name: $firstName $lastName")
-                Text(text = "Occupation: $occupation", fontSize = 10.sp)
+                Text(text = "Name: ${person.firstName} ${person.lastName}")
+                Text(text = "Occupation: ${person.occupation}", fontSize = 10.sp)
             }
         }
     }
@@ -41,9 +42,11 @@ fun PersonCard(imageId: Int, firstName: String, lastName: String, occupation: St
 @Composable
 fun PersonCardPreview(){
     PersonCard(
+        Person(
         imageId = R.drawable.pic_bruno_mars_musician,
         firstName = "Bruno",
         lastName = "Mars",
         occupation = "Musician"
+        )
     )
 }
